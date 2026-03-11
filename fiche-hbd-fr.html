@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hygiène Bucco-Dentaire — Dr Iannotta</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Calibri, Arial, sans-serif; font-size: 10.5pt; color: #1a1a1a; background: white; }
+a { color: inherit; text-decoration: none; }
+
+.page { max-width: 750px; margin: 0 auto; padding: 0; }
+
+/* HEADER */
+.header-table { width: 100%; border-collapse: collapse; }
+.header-icon-cell { width: 90px; background: #1A3A5C; padding: 10px 8px; text-align: center; vertical-align: middle; }
+.header-title-cell { background: #1A3A5C; padding: 12px 20px; vertical-align: middle; text-align: center; }
+.header-title { font-size: 22pt; font-weight: bold; color: white; font-family: Calibri, Arial, sans-serif; }
+.header-subtitle { font-size: 10pt; color: #D6EAF8; font-style: italic; margin-top: 2px; }
+
+/* SECTION TITLES */
+.section-title { display: flex; align-items: center; gap: 8px; font-size: 11pt; font-weight: bold; color: #1A3A5C; padding: 7px 0 4px 0; border-bottom: 1.5px solid #2E86AB; margin: 14px 0 0 0; }
+
+/* TABLE DE CONTENU 2 COLONNES */
+.content-table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+.content-table td { vertical-align: top; padding: 8px 10px; width: 50%; }
+.content-table td:first-child { border-right: 1px solid #ccc; }
+.col-head { font-size: 10pt; font-weight: bold; color: #1A3A5C; margin-bottom: 5px; }
+.col-head-teal { font-size: 10pt; font-weight: bold; color: #2E86AB; margin-bottom: 5px; }
+
+/* LISTES */
+ul.dotlist { list-style: none; padding: 0; margin: 0; }
+ul.dotlist li { padding: 1.5px 0 1.5px 16px; position: relative; font-size: 10pt; line-height: 1.4; color: #1a1a1a; }
+ul.dotlist li::before { content: ''; position: absolute; left: 0; top: 6px; width: 7px; height: 7px; background: #2E86AB; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+
+/* SHADED ROW (fond gris alternié) */
+.shaded { background: #EAF4FC; }
+.shaded-warn { background: #FEF9E7; border-left: 4px solid #F39C12; padding: 7px 10px; margin: 6px 0; }
+.shaded-warn .warn-title { font-weight: bold; color: #E67E22; font-size: 10pt; margin-bottom: 3px; display: flex; align-items: center; gap: 5px; }
+
+/* TEXTE INTRO (pleine largeur) */
+.intro-para { font-size: 10pt; line-height: 1.5; margin: 5px 0 6px 0; }
+
+/* FOOTER */
+.footer { text-align: center; font-size: 9pt; color: #555; margin-top: 16px; padding-top: 6px; border-top: 1px solid #ccc; }
+
+/* CITATION FINALE */
+.citation { text-align: center; font-style: italic; font-size: 10pt; color: #1A3A5C; margin: 14px 0 4px 0; display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+/* Séparateur */
+.sep { height: 1px; background: #2E86AB; margin: 2px 0 0 0; }
+
+@media print { body { font-size: 9.5pt; } .page { max-width: 100%; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<table class="header-table">
+<tr>
+  <td class="header-icon-cell">
+    <img src="data:image/png;base64,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" style="width:52px;height:52px">
+  </td>
+  <td class="header-title-cell">
+    <div class="header-title">Hygiène Bucco-Dentaire</div>
+    <div class="header-subtitle">Guide pratique pour des dents et gencives en pleine santé</div>
+  </td>
+</tr>
+</table>
+
+<!-- LE BROSSAGE -->
+<div class="section-title">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAABXklEQVR4nO3awU3DQBBG4YEyoCvoJdQAvYSuoI3kBLKiHKI8/zOW875T7MvaT7tKtNkqSZIkPaKn7gFf3g6n9Bi/319t79U2UEe4Sx0hn9MDVM3E6xo3HnAqXtf40Sl+7eF/jp//n1/fP9rup5ZzyxL+s3y55XX6flIs4PTSvZR6ntYZuEcGhAwIGRAyIGRAyICQASEDQgaEDAgZEDIgZEDIgFBrwOUO8fI6fT8ptqW/tQ3Vqsy2vksYMiBkQMiAkAEhA0IGhGIBO4+Y3WIXRzv2KBpwK7Mw+RzxGTgdMT1+yxKeitgxrmekodHltWbMqVk+9i289kyc2j7zZwxkQMiAkAEhA0IGhAwIGRAyIGRAyICQASEDQgaEDAgZEDIgZEDIgJABIQNCBoQMCI0FXPuP8If7Y30vRgOuNWsmT4CNz0D68tPH58YDVt0fYTpe1fDprGtuOSS0hXCSpKozAB96ejG1w7MAAAAASUVORK5CYII=" style="width:20px;height:20px"> LE BROSSAGE
+</div>
+<div class="sep"></div>
+<table class="content-table">
+<tr>
+  <td>
+    <div class="col-head">Fréquence &amp; durée</div>
+    <ul class="dotlist">
+      <li>2 fois par jour minimum (matin + soir)</li>
+      <li>La durée moyenne est de 3 à 4 minutes</li>
+      <li>Attendre 15 à 30 min après un repas</li>
+    </ul>
+    <br>
+    <div class="col-head">La technique manuelle</div>
+    <ul class="dotlist">
+      <li>Brosse à 45° par rapport à la gencive</li>
+      <li>Petits mouvements circulaires doux</li>
+      <li>Toutes les faces : ext., int., mastication</li>
+      <li>Ne pas brosser la langue (sauf fumeur)</li>
+    </ul>
+  </td>
+  <td>
+    <div class="col-head">La technique électrique</div>
+    <ul class="dotlist">
+      <li>Brossage dent par dent sans mouvement brusque</li>
+      <li>Bien humidifier la tête avant le brossage</li>
+      <li>3 secondes par face de dent (ignorer le chronomètre)</li>
+      <li>Renouveler la tête tous les 3 mois</li>
+    </ul>
+    <br>
+    <div class="col-head">Le dentifrice</div>
+    <ul class="dotlist">
+      <li>Fluoré (1450 ppm pour adulte)</li>
+      <li>Dose : taille d'un pois</li>
+      <li>Ne pas rincer abondamment</li>
+    </ul>
+  </td>
+</tr>
+<tr class="shaded">
+  <td>
+    <div class="col-head">Contrôle de plaque</div>
+    <p class="intro-para">Le révélateur de plaque (pastille ou solution colorante) teinte les zones insuffisamment nettoyées, rendant la plaque visible à l'œil nu.</p>
+    <ul class="dotlist">
+      <li>Après brossage, mâcher une pastille ou appliquer quelques gouttes</li>
+      <li>Rincer légèrement : les zones colorées révèlent la plaque résiduelle</li>
+      <li>Rebrosser jusqu'à disparition de la couleur</li>
+      <li>À utiliser 1 à 2 fois par semaine pour corriger sa technique</li>
+      <li>Identifie les zones oubliées : faces internes, molaires, gencives</li>
+      <li>Disponible en pharmacie sans ordonnance</li>
+    </ul>
+  </td>
+  <td class="shaded">
+    <div class="col-head">Hypersensibilité dentinaire</div>
+    <p class="intro-para">Sensibilité au chaud, froid ou sucre lorsque la dentine est exposée : émail érodé, récession gingivale ou brossage trop vigoureux.</p>
+    <ul class="dotlist">
+      <li>Brossage trop appuyé ou brosse dure : abrase l'émail et repousse la gencive</li>
+      <li>Boissons acides répétées : érodent progressivement l'émail</li>
+      <li>Éviter les dentifrices abrasifs (blancheur, charbon) : ils aggravent l'hypersensibilité et ne font pas blanchir les dents</li>
+      <li>Utiliser un dentifrice reminéralisant (fluorure d'étain, hydroxyapatite ou arginine) : colmate les tubules dentinaires et réduit les sensibilités (Elmex Sensitive, Sensodyne Repair &amp; Protect ou GUM Sensivital+)</li>
+      <li>Appliquer en massage sur les zones sensibles sans rincer</li>
+      <li>Consulter si persistance : peut signaler une carie ou récession évolutive</li>
+    </ul>
+  </td>
+</tr>
+</table>
+
+<!-- ESPACES INTERDENTAIRES -->
+<div class="section-title">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAACWElEQVR4nO2bS04EMQwFDeIKcFPYwQJ2cFM4BKyCQquZiX/vOZJrBRKT2DVO2okakaZpmqZpmqZpGjQ37ABm7h+fv+ffP99ff39+eHr587dfH28lYr9jTn4U5vksSyhFoEfctTHRImECM6Rdmwch8zZ7AhGcPMa8qRXIEncWQ1Y1plVgBXkzWfGkCKwmb5ARV7jAqvIG0fGFCqwubxAZZ5jAXeQNouINEbibvEFE3O5He7S8+fz7H8dzsRdPi+MSGCVvRdp/RMm0SqReJnjEHceIrspVzHugt/oi5EWOZ83HJLCavKhxLXlBLhNmsuShxj8CFYhKDilRLdC6fNGVYZ1Pmx+kAtHykPOqBFqqjyXPM78mT2ofeImzvo79ZZyh6r61FWhJeKUhzhp3ZvVkAm9jLrGaJOvUccaywOwbF62UbImr+aZVoGaZWWVoPpe1f5ZawjtCF+hdiuz9kC5wd1qgkxbopAU6oQv0thfs4x1d4O6kCUQ0uYhm/RrLArNfVtRKzF66W14mrEph73szqddZIvZkI+8DLct3tQLLXqhWqrJLqJawZR9kn1Uzq08EtAeyJCLmVQu0Po3REq3zafODPoVREpFfFryNyU4OXekmgd6mOitJ77iWvMwVWE0iQ54IuQ8cSVd4Q9VKvyMtxHekB7u+pS/i34pCnsJV/ntcS0TcYW3MbhKj4g3tA3eRGBlneCNdXWJ0fCknkaoSM+JKO8pVk5gVDyRJZpuT/UVCLhNY1YiYl5JYZkWivyzqPhUpklXlpTZ6jdBqD6mmaZqmaZqmaRT8AP1vEp2qlHs0AAAAAElFTkSuQmCC" style="width:20px;height:20px"> LES ESPACES INTERDENTAIRES
+</div>
+<div class="sep"></div>
+<p class="intro-para">Le brossage seul ne nettoie que 60 % des surfaces. Les espaces entre les dents nécessitent un soin quotidien complémentaire.</p>
+<table class="content-table">
+<tr>
+  <td>
+    <div class="col-head">Fil dentaire</div>
+    <ul class="dotlist">
+      <li>Dérouler ~30-40 cm, enrouler autour des majeurs</li>
+      <li>Former un « C » autour de chaque dent</li>
+      <li>Glisser doucement sans forcer la gencive du côté de chaque dent</li>
+      <li>Retirer le fil en direction des lèvres (ne pas repasser par le point de contact)</li>
+    </ul>
+  </td>
+  <td>
+    <div class="col-head">Brossettes interdentaires</div>
+    <ul class="dotlist">
+      <li>Idéales si les espaces sont larges (à partir de 0.6 mm)</li>
+      <li>Choisir la taille adaptée à chaque espace</li>
+      <li>Insérer délicatement, quelques allers-retours</li>
+      <li>Particulièrement recommandées après bridge ou implant</li>
+    </ul>
+  </td>
+</tr>
+</table>
+
+<!-- ALIMENTATION -->
+<div class="section-title">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAACkUlEQVR4nO2cPVLDMBBGNwxHSE1NA0XS6jAUHAJaGjhEihzGbVKEJofwHUwR5NF4nFirXf3mexXDMLbz+FaSHa2JAAAANIvZmyHm8R9jHjwnscVZVilOkoo5ad1bF/UzNpHAVGmbowqB72Y9Ctp1/ZgoV1x/7se/Xz+vk11bFQJdzN4MVtaStNjlS1SRwM78Czr3SRO2xEPuC1jClq/pejr/nFclySOqQOAU37JMUb5EFQokushJJWiJagS6s6+lBJFFC3SXL7eYSkwptWiBHEpIIwB3yGmzGU6bjehe1uzNkOt+OMudiFTYNVyJqcbDpAJjiZvDyqz6cdYwDB+TX33aH3632++Y57bEFhnloDPiruKKfD0e2dfDHfu0RaqvAznyiIheDocxldwSD5k4tCcb1f8GV54LN4kaIjTSqCZQIs8yHRfnRGonSCqx6AeqtqSP/eXJ8+7rSf0cZm8GiUSVMTDl8iQGklSLBdYuzxIqsZmnMbkQCXTTJ10Yp1pY3yIkhcEC50o3VEIJ8ixcieolzJVRkrwQgqZv34nDvcuYwhEXcxlzDd+lDVtgjlk3h0AiP4mYhYVAoBCWwFYWzb74zMhIoBAIFAKBQrwF3tv4Z1kaB5FAIRAoBAKFQKAQCBQCgUIgUAgECvEWGLJvpQWWngkigUIgUAgECmEJvLdxEN+JJAAChbAF3ksZ+34vHJTA1iVy9guihIUEC2w1hdzdqqIEtiYxZKsvSliIWGArKQzdaK6SwNolZt+lT1SvRGmfiOoYWJtEjU4l9UYbK7HknQyaDYfRZuFS06jdrRm11aukNMbqF07SK5dTZNUd61NSimzynQkWd3zUlJnjxTvZ212nkw1HKN5UBAAAoGr+AGO5GH0bUfNsAAAAAElFTkSuQmCC" style="width:20px;height:20px"> ALIMENTATION &amp; BOUCHE
+</div>
+<div class="sep"></div>
+<table class="content-table">
+<tr>
+  <td>
+    <div class="col-head" style="color:#e74c3c">À limiter</div>
+    <ul class="dotlist">
+      <li>Sucres entre les repas</li>
+      <li>Sodas et jus de fruits</li>
+      <li>Bonbons durs et aliments très collants</li>
+    </ul>
+  </td>
+  <td>
+    <div class="col-head" style="color:#27ae60">À privilégier</div>
+    <ul class="dotlist">
+      <li>Eau du robinet (fluorée)</li>
+      <li>Alimentation saine et variée</li>
+      <li>Chewing-gum au xylitol après les repas</li>
+    </ul>
+  </td>
+</tr>
+</table>
+
+<!-- IRRIGATEUR -->
+<div class="section-title">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAACxElEQVR4nO2cPU4bQRTHxxFKi4KgMbfgBrQRFdwA+QBUSY4AVBzA4gZJhdJyA26BGxBRWhqn8XOG9ezMvHnzufP/SZbs2fXO29+++cRCKQAAAAAA0COz0C8uHlbrmIGYWJ7Ng+OToN+bK4ZP0gpSkqseW52uGNgC6YKLk33uV3n1bK5fQiIHlsAPqf30N340Gvr1a5boLTBX5u3UmzkTh32e/nnxsFrTi8q8O+kasqDUoKKU+f6XZ/NZ0CAC/gOBQiDQk7G+ca9MOG0wnFCb+mBk4Ai+E2oINDAmy1TOX4kUmgfWirdAav+pVyA79W7qKzkHtMHKwN/3d9v3udbCw3pjcHi6WA9f+vGxh2Uq936q8/Nv20q+Xl4xwpWhy1v9uhVn4VCWzuvj8sP1fba1vALS5RE5JJoyTyLRJo8YSnQRNA/kyIvd/ELxkUfncSQ6+0BT9pWkRDymXRiCPY3hNt2c/WUKXBPqSSzlbFkZY+Cx0axA36ZM573/eUsSR5NLuZz9oG2HWqmGMzAntlVQkxlYE5PIQNtAkbq5Ny3QZ4Slc3wn0lyaFJh6asKhSYEx+PzlYPteMsXpchDR5Zk+c+hGIG0QjMmicu5uTDcClXLL4cpTKkAgd3uqlu2sVHSVgSkIGoUpq2xbVVPPPMLZ5mvbUFVKPg803VPoNbtswkNZkgfS7UQ61mqmywyMCQQKgUAhECgEAoVAoBAIFAKBQiBQSPKVyPPPm52y44vvqavNRjKBJnHDY1MQmUSgLu/o7sfO8Zer6+15rUtM2gea5NnKWyS6QMo+lyQ6bmvqLYBRWAgECokukAYFGijGoOMYRCyMSXTJbYlkf1TyGRxCs6+LHxeRHKxEhExJlglnH1hTc1GqvngwjRHiJbCWp15LHDreGVg6+NL1j8FqwqVuolZ5Sgn+f2COHx3VLA4AAAAAoHH+AaK1JYfqS1ZjAAAAAElFTkSuQmCC" style="width:20px;height:20px"> L'IRRIGATEUR INTERDENTAIRE (JET DENTAIRE)
+</div>
+<div class="sep"></div>
+<p class="intro-para">L'irrigateur buccal propulse un fin jet d'eau pulsée pour déloger les résidus alimentaires et la plaque dans les espaces difficiles d'accès. Il constitue un excellent complément au brossage et au fil dentaire (ou brossettes), sans les remplacer.</p>
+<table class="content-table">
+<tr>
+  <td>
+    <div class="col-head">Avantages</div>
+    <ul class="dotlist">
+      <li>Très efficace autour des implants, bridges et appareils orthodontiques</li>
+      <li>Stimule et masse les gencives</li>
+      <li>Réduit le saignement gingival en quelques semaines d'utilisation régulière</li>
+      <li>Facile à utiliser pour les personnes ayant une dextérité réduite</li>
+    </ul>
+  </td>
+  <td>
+    <div class="col-head">Comment l'utiliser ?</div>
+    <ul class="dotlist">
+      <li>Remplir le réservoir d'eau</li>
+      <li>Diriger l'embout vers l'espace interdentaire, légèrement incliné vers la gencive</li>
+      <li>Longer lentement chaque espace, lèvres mi-closes</li>
+      <li>Utiliser quotidiennement, idéalement après le brossage du soir</li>
+      <li>La pression doit être faible pour ne pas blesser les tissus</li>
+    </ul>
+  </td>
+</tr>
+</table>
+
+<!-- PÂTE DE KEYES -->
+<div class="section-title">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAABdklEQVR4nO3awU0DMRBG4YEC4EwJ0EEkOoALFEMRFAOX0AESHUAJnKEBOFlspHg9k39j7Zj3nc2s98XsKlLMAAAAAAAAAAAAxney1KCn96+f1pr7q/PQ9TLMPI1cvMazqci6TDPlE1gudnd51lz7/PFtZu1POMtMM/EERjY1XTf3CWeZWRwcMLqpYm5zWWZOLfIM/M8IKCKgiIAiAooIKCKgaLiAn7fX7q9hSxguYG9DBux5CocMaNYv4rABzfpEHDpgDwQUEVBEwIB9z1QCOtVeSAR0mHubE1B0UMDe3zfXjBMoCgdc8vSNcJJDAY9xw9kjugMe80YzR1zNMzBrRFfArDfXQzNgLd7m4cbM/n6I41XWl7/POHNqNmDr5EU359lUlpnF7M+3vP+6b48vnmVm5tvUmmdebF93mlVPYOS5570B77pMM/eeQF4ade4TCB8CiggoIqCIgCICiggoIqCIgCICiggoIqCIgCICiggIAAAAoL9f+FDUSQR78ooAAAAASUVORK5CYII=" style="width:20px;height:20px"> LA PÂTE DE KEYES
+</div>
+<div class="sep"></div>
+<div class="shaded-warn">
+  <div class="warn-title">⚠ Réservé aux patients atteints de maladie parodontale diagnostiquée</div>
+  <p style="font-size:10pt">La pâte de Keyes ne doit jamais être utilisée en automédication ni sans l'accord préalable de votre chirurgien-dentiste ou parodontiste. Son usage s'inscrit exclusivement dans le cadre d'un traitement parodontal prescrit et suivi par un professionnel.</p>
+</div>
+<p class="intro-para">La pâte de Keyes est un mélange antiseptique utilisé en complément du traitement mécanique des maladies parodontales (gingivites et parodontites). Elle associe traditionnellement du bicarbonate de sodium pharmaceutique et de l'eau oxygénée, parfois complétée d'un dentifrice fluoré. Son action mécanique et antibactérienne cible les bactéries anaérobies responsables de la destruction du tissu parodontal.</p>
+<table class="content-table">
+<tr class="shaded">
+  <td>
+    <div class="col-head">Mode d'application (sur prescription)</div>
+    <ul class="dotlist">
+      <li>Appliquer la pâte sur la brosse à dents souple</li>
+      <li>Masser délicatement le sillon gingival et les espaces interdentaires</li>
+      <li>Laisser agir 1 à 2 minutes, puis cracher sans rincer vigoureusement</li>
+      <li>Fréquence et durée définies par votre praticien</li>
+    </ul>
+  </td>
+  <td class="shaded">
+    <div class="col-head">Points de vigilance</div>
+    <ul class="dotlist">
+      <li>Ne jamais substituer la pâte de Keyes à un traitement parodontal professionnel (détartrage, surfaçage)</li>
+      <li>Un usage prolongé et non encadré peut abraser l'émail</li>
+      <li>Signaler tout inconfort ou aggravation à votre praticien</li>
+      <li>Inefficace — voire contre-productif — en l'absence de maladie parodontale avérée</li>
+    </ul>
+  </td>
+</tr>
+</table>
+
+<!-- SUIVI -->
+<div class="section-title">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAABoElEQVR4nO3cMU7DMBiG4YCYYScngNvQXKMzGWAsA8xcg3IbOAHs9AIwuWpTHP/2h9MYv4/UobLlxF/jOr/UpmkAAAAAAKjLSY5BLxe337vvP9dPWY5jlfN8Tv9qoFoRoIgARQQoIkBR9G403NH+o5hdOuoKrCG8pombpznAWsJzrPM1BVhbeI5l3sEAaw3PCc2fXVhEgCICFBGgiABFBCgiQBEBighQRIAiAhRFBfjx8pjrPGYlZp5nOQevAUtYRICi6CW86/V94227uTovur9V8hUYOviwvbT+z6u70XaHJSwiQBEBighQRICi5AB/uy0Yay+t//L+YbTdke4DQydRcv+lcQyWsIhKREQl4kElMhECFBGgiABFBCiiEvGgEhH7U4lMhEpERCXiQSUyEQIUEaCIAEUEKKIS8aASEftTiUwk6gpsu37vB5YlVRZHq0SGf39vu9508LlVFqmVSOjv/6Yl7AsxpO367avE/pZnJ5i/A4/9+Ka5itpECPFQciDrt6/gowAW1xfb8Uvv78NtjCg5wNCnM2wvvT8A4NAPul4MleaD5CYAAAAASUVORK5CYII=" style="width:20px;height:20px"> SUIVI &amp; VISITES CHEZ LE PRATICIEN
+</div>
+<div class="sep"></div>
+<table class="content-table">
+<tr>
+  <td>
+    <div class="col-head">Fréquence recommandée</div>
+    <p style="font-size:10pt">1 visite tous les 6 à 12 mois, même sans douleur.</p>
+    <br>
+    <div class="col-head">Détartrage</div>
+    <p style="font-size:10pt">Élimine le tartre que le brossage ne peut retirer.</p>
+  </td>
+  <td>
+    <div class="col-head">Radiographies</div>
+    <p style="font-size:10pt">Détectent les caries invisibles et surveillent l'os alvéolaire.</p>
+    <br>
+    <div class="col-head">Signes à surveiller</div>
+    <p style="font-size:10pt">Saignement, sensibilité, douleur persistante : consultez sans attendre.</p>
+  </td>
+</tr>
+</table>
+
+<div class="citation">
+  <img src="data:image/png;base64,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" style="width:18px;height:18px;opacity:0.6">
+  <em>Une bonne hygiène quotidienne est le premier traitement dentaire — et le moins onéreux.</em>
+</div>
+
+<div class="footer">Dr IANNOTTA Maxime &nbsp;•&nbsp; 7 avenue Lemeray, 06600 Antibes &nbsp;•&nbsp; 04.97.04.94.21 &nbsp;•&nbsp; docteur.iannotta@gmail.com</div>
+
+</div>
+</body>
+</html>

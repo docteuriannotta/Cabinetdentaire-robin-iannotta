@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Panneau – Dr. Iannotta Maxime</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #c8d4e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: Jost, sans-serif;
+      padding: 32px 16px;
+    }
+
+    .print-btn {
+      margin-bottom: 24px;
+      padding: 10px 28px;
+      background: #1a4a7a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: Jost, sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .print-btn:hover { background: #0d2f52; }
+
+    /* Panneau 10x15cm */
+    .panel {
+      width: 100mm;
+      height: 150mm;
+      background: #061a2e;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 7mm;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    }
+
+    /* Blobs */
+    .panel::before {
+      content: '';
+      position: absolute;
+      width: 80mm; height: 70mm;
+      top: -25mm; left: -20mm;
+      background: radial-gradient(ellipse, rgba(26,74,122,0.55) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .panel::after {
+      content: '';
+      position: absolute;
+      width: 60mm; height: 60mm;
+      bottom: -20mm; right: -15mm;
+      background: radial-gradient(ellipse, rgba(13,53,96,0.5) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 0;
+    }
+
+    /* Logo */
+    .logo img {
+      width: 12mm; height: 12mm;
+      object-fit: contain;
+      filter: drop-shadow(0 1px 6px rgba(255,255,255,0.2));
+      margin-bottom: 3mm;
+    }
+
+    /* Identité */
+    .doctor-label {
+      font-size: 6pt;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(240,246,255,0.4);
+      margin-bottom: 1mm;
+    }
+    .fullname {
+      font-family: 'Playfair Display', serif;
+      font-size: 14pt;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: rgba(240,246,255,0.88);
+      margin-bottom: 2mm;
+    }
+    .specialty-line {
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+      margin-bottom: 5mm;
+    }
+    .s-rule {
+      flex: 1; max-width: 10mm; height: 0.4px;
+      background: linear-gradient(90deg, transparent, #c8a96e);
+    }
+    .s-rule.r { background: linear-gradient(90deg, #c8a96e, transparent); }
+    .specialty {
+      font-size: 6pt;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #c8a96e;
+    }
+
+    /* Séparateur */
+    .sep {
+      width: 100%; height: 0.4px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      margin-bottom: 5mm;
+    }
+
+    /* QR Code centré */
+    .qr-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3mm;
+    }
+    .qr-label {
+      font-size: 6pt;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(90,122,153,0.9);
+      text-align: center;
+    }
+    .qr-box {
+      background: white;
+      border-radius: 2mm;
+      padding: 2mm;
+      display: inline-flex;
+    }
+    #qrcode canvas, #qrcode img {
+      width: 35mm !important;
+      height: 35mm !important;
+      display: block;
+    }
+    .qr-caption {
+      font-size: 6pt;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: rgba(90,122,153,0.75);
+      text-align: center;
+      line-height: 1.8;
+      margin-top: 1mm;
+    }
+
+    /* Footer coordonnées */
+    .footer {
+      margin-top: 5mm;
+      text-align: center;
+      border-top: 0.4px solid rgba(255,255,255,0.08);
+      padding-top: 3mm;
+      width: 100%;
+    }
+    .footer-name {
+      font-size: 6.5pt;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(240,246,255,0.5);
+      margin-bottom: 1.5mm;
+    }
+    .footer-info {
+      font-size: 5.5pt;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(90,122,153,0.7);
+      line-height: 1.9;
+    }
+
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      body { background: white; padding: 0; }
+      .print-btn { display: none; }
+      .panel { box-shadow: none; border-radius: 0; width: 100mm; height: 150mm; }
+    }
+  </style>
+</head>
+<body>
+  <button class="print-btn" onclick="window.print()">🖨 Imprimer / Exporter en PDF</button>
+
+  <div class="panel">
+    <div class="inner">
+
+      <div class="logo">
+        <img src="data:image/png;base64,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" alt="Dent" />
+      </div>
+
+      <div class="doctor-label">Docteur</div>
+      <div class="fullname">Iannotta Maxime</div>
+      <div class="specialty-line">
+        <div class="s-rule"></div>
+        <div class="specialty">Chirurgien-Dentiste &nbsp;·&nbsp; Dentist</div>
+        <div class="s-rule r"></div>
+      </div>
+
+      <div class="sep"></div>
+
+      <div class="qr-wrap">
+        <div class="qr-label">Scannez le code pour accéder à notre espace patient<br/>et améliorer votre prise en charge.</div>
+        <div class="qr-box">
+          <div id="qrcode"></div>
+        </div>
+        <div class="qr-caption">
+          Avis Google &nbsp;·&nbsp; Fiches conseils &nbsp;·&nbsp; Contact
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-name">Cabinet des Dr ROBIN &amp; IANNOTTA</div>
+        <div class="footer-info">
+          7 avenue Lemeray &nbsp;·&nbsp; 06600 ANTIBES<br/>
+          04 97 04 94 21
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    new QRCode(document.getElementById("qrcode"), {
+      text: "https://docteuriannotta.github.io/Cabinetdentaire-robin-iannotta",
+      width: 132,
+      height: 132,
+      colorDark: "#061a2e",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teeth Whitening — Dr Iannotta</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Calibri, Arial, sans-serif; font-size: 10.5pt; color: #1a1a1a; background: white; }
+.page { max-width: 750px; margin: 0 auto; }
+.header-table { width: 100%; border-collapse: collapse; }
+.header-icon-cell { width: 90px; background: #1A3A5C; padding: 10px 8px; text-align: center; vertical-align: middle; }
+.header-title-cell { background: #1A3A5C; padding: 12px 20px; vertical-align: middle; text-align: center; }
+.header-title { font-size: 22pt; font-weight: bold; color: white; }
+.header-subtitle { font-size: 10pt; color: #D6EAF8; font-style: italic; margin-top: 2px; }
+.section-title { display: flex; align-items: center; gap: 8px; font-size: 11pt; font-weight: bold; color: #1A3A5C; padding: 7px 0 4px 0; border-bottom: 1.5px solid #2E86AB; margin: 14px 0 0 0; }
+.content-table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+.content-table td { vertical-align: top; padding: 8px 10px; width: 50%; }
+.content-table td:first-child { border-right: 1px solid #ccc; }
+.col-head { font-size: 10pt; font-weight: bold; color: #1A3A5C; margin-bottom: 5px; }
+ul.dotlist { list-style: none; padding: 0; margin: 0; }
+ul.dotlist li { padding: 1.5px 0 1.5px 16px; position: relative; font-size: 10pt; line-height: 1.4; }
+ul.dotlist li::before { content: ''; position: absolute; left: 0; top: 6px; width: 7px; height: 7px; background: #2E86AB; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+.shaded { background: #EAF4FC; }
+.shaded-warn { background: #FEF9E7; border-left: 4px solid #F39C12; padding: 7px 10px; margin: 6px 0; }
+.shaded-warn .warn-title { font-weight: bold; color: #E67E22; font-size: 10pt; margin-bottom: 3px; }
+.shaded-danger { background: #FDEDEC; border-left: 4px solid #E74C3C; padding: 7px 10px; margin: 6px 0; }
+.shaded-danger .danger-title { font-weight: bold; color: #C0392B; font-size: 10pt; margin-bottom: 3px; }
+.intro-para { font-size: 10pt; line-height: 1.5; margin: 5px 0 6px 0; }
+.footer { text-align: center; font-size: 9pt; color: #555; margin-top: 16px; padding-top: 6px; border-top: 1px solid #ccc; }
+.citation { text-align: center; font-style: italic; font-size: 10pt; color: #1A3A5C; margin: 14px 0 4px 0; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.sep { height: 1px; background: #2E86AB; margin: 2px 0 0 0; }
+.step-table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+.step-table td { vertical-align: top; padding: 7px 10px; width: 50%; border: 1px solid #ccc; }
+.step-num { font-size: 10pt; font-weight: bold; color: #2E86AB; margin-bottom: 3px; }
+@media print { body { font-size: 9.5pt; } .page { max-width: 100%; } }
+</style></head>
+<body><div class="page">
+<table class="header-table"><tr>
+  <td class="header-icon-cell"><img src="data:image/png;base64,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" style="width:52px;height:52px"></td>
+  <td class="header-title-cell">
+    <div class="header-title">External Teeth Whitening</div>
+    <div class="header-subtitle">Patient guide to a brighter, healthier smile</div>
+  </td>
+</tr></table>
+
+<div class="section-title"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAACZElEQVR4nO2c3U3FMAxGDWIKGAy2gFFgCxgM1oAHFKm3alM7n+0k7XfernTVOCfOT6M0IoQQQkgjd70DWPL4+vmr/e/Px8sQsXcLwiJLSw+p6QVGiFuTKTKloAxpe0TLDH14T3FrokTeRzxUZCx5InHxuLfKaOK28MxG1wycQZ6Ib5xuAmeRV/CK10XgbPIKHnHDAmeVV0DjhwTOLq+A1KNZ4FnkFVrr0yTwbPIKLfUyCzyrvIK1fiaBZ5dXsNQz7FXuKqgFXiX7Ctr6qgReTV5BU292YZDDXQmv7Pt+f775/fT25fHYlDJquzfhAteVWuNRyegyagJDu/BRxbT/6V1GjarAq04ea2oewjLQ0uqtGZJRxhG7Apl9t+z54DIGhAJBwgRalg6ty4yMMo5gBoJsCvSaQDStjmZGRhmFLS+bK+yIGXjmV7kl67eSNIFnYS2QYyAIBYJQIAgFglAgCAWCUCAIBYJsChzlI5bR2PLCDAShQBAKBKFAkF2BnEhu2fPBDASpCmQW/tPtaMcVePB+YMa2upVlTN7xqLqoZou/dnSip0Q0rqNhzK0Lj5BpFrziVQlEJ5PI42WR5WrqbRKDdmWRnEz1iEGbNO6z8FFw0dmY3YDmrumRhUsyjvhay7MMWU1jm7fEgkVm1POt433z5BAlMYoIeSLgpRPaIyA9RWqzunWlAU0i2kJ7rRGj5Yk4XXtiOYyUkY2WBkPXuG67LS0nujxltmS5x26T63ZV9FdNSyK/PrLAm4tAwjZMRxQZsUEctqE62m52VDy8PxCEN1iC8A5VkKHGqRlv8SWEkCvzB0VtIU+aVvk0AAAAAElFTkSuQmCC" style="width:20px;height:20px"> WHAT IS EXTERNAL TEETH WHITENING?</div>
+<div class="sep"></div>
+<p class="intro-para">Teeth whitening is a cosmetic treatment that reduces discolouration of the enamel and dentine. It uses gels based on hydrogen peroxide or carbamide peroxide, which diffuse through the enamel to break down pigmented molecules.</p>
+<table class="content-table">
+<tr>
+  <td>
+    <div class="col-head">Discolourations that can be treated</div>
+    <ul class="dotlist">
+      <li>Yellowing caused by age and time</li>
+      <li>Stains from coffee, tea, red wine, tobacco</li>
+      <li>Discolouration related to root canal treatment and/or previous trauma (specific protocol)</li>
+    </ul>
+  </td>
+  <td class="shaded">
+    <div class="col-head">What whitening cannot do</div>
+    <ul class="dotlist">
+      <li>Whiten crowns, veneers or composite fillings</li>
+      <li>Achieve a shade beyond what nature allows</li>
+      <li>Replace a professional scale and polish</li>
+    </ul>
+  </td>
+</tr>
+</table>
+
+<div class="section-title"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAABgElEQVR4nO3Z4W3CQAyGYbfqFEzWLZilWzBZ16A/KiSEgNjnz4cvvM8vlB7F98VukmIGAAAAAACAxR2Op/PheDrfvl5lfcSX6heZ/Re39bPfn++PrutHfGbeDGGA3rG4HqVO60fRgUkEmPSSAB+NTfXxCqUBztyIR0U9jHASASalb6S7jelsqQ7cS3iZfQwHmPnQR49PquMjRvezy7+BymC3DAWo6D7vJqvXXxvZVzjAyIfM7ASVaIjSf2c9cy/My7F7RVevVwl1iLeQzp2n3oP8ItI5PDN9fdIAu4d3oazTHeBebpq9vPvd5X3gTLIAVxnfC1W9dGASASYRYBIBJhFgkjvA1a6yWdMf5Va70VbVywgnhQJ8lzGO7FPagauMsbLOcIBbZ6d7iFv1RadsqANXDVEdnlnhRaRbiFX1DAfoOVtdQvTUMXqBTHXgCiFWhmcW/FLpmU5fOM2sRbqZV3dbhOpElnRD5yDVE9BmnCq9yxMUAAAAAAAAAAAAAEDvD5zp92SBr8G0AAAAAElFTkSuQmCC" style="width:20px;height:20px"> THE GOLD STANDARD: CUSTOM-MADE TRAYS</div>
+<div class="sep"></div>
+<p class="intro-para">The current reference technique uses thermoformed trays made from an impression of your teeth, combined with a gel provided by your practitioner.</p>
+<table class="content-table">
+<tr>
+  <td>
+    <div class="col-head">Treatment process</div>
+    <ul class="dotlist">
+      <li>Physical or digital impression of your arches</li>
+      <li>Custom tray fabrication in the laboratory</li>
+      <li>Carbamide peroxide gel (10–16%)</li>
+      <li>Wear the tray overnight for 3 to 6 weeks</li>
+      <li>Intermediate check-up recommended by your practitioner</li>
+    </ul>
+  </td>
+  <td>
+    <div class="col-head">Advantages of this method</div>
+    <ul class="dotlist">
+      <li>Progressive, even results across all teeth</li>
+      <li>Gel concentration adjusted to your sensitivity level</li>
+      <li>Reusable trays for future touch-ups</li>
+      <li>Treatment carried out at home, at your own pace</li>
+      <li>Currently recommended standard for external whitening</li>
+    </ul>
+  </td>
+</tr>
+</table>
+
+<div class="section-title"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAACeklEQVR4nO3cYU7DMAwF4AfiFHAwuAUcBW4BB2PXgF+Rpqpp7fg5sdO831Nnf/PWNFoLrKysrKysNOZhdAH3eX7//pO+9vb1FqL2YUVosKQZgdr9DT3gtukJ2eWNeqDV4o3pevCRcNt4QT56HBSIhQf41UP/VKLB7YU5jdQJzIAHcOukAWbBK2HVSwHMhlfCqNsMmBWvxFq/CTA7Xomlj2bAWfBKWvtpApwNr6SlLzXgrHgl2v5UgLPjlWj6dLuUu0rEgFeZvhJpvyLAq+GVSPq+xFf49/PV7dingNmnr+C1Ip71P/UEbtE8JnFawBoWG/EQMPvXtxYt4pHDlBMoAWJNYhUw6/RJYV4+flTHrXlMNYFeeEeZBnAEHjAJoOdC+SzpATV47OkDKoBZTiC98fZc0k+gJB6TV5IWcNRJY5uUgFHwgISAkfAAZ0D28iIaHuAIaN2Hqx0vWlwA2ftwo9d6R6ED9tqH20tvPIAMeIbUghjxd+8+NEBpoxrE6HhABbDlL7CaJpgbnj3x9lyoX2EWYkS8WugnESti1OVKLS7LmFbEyMuVWtwW0lrEjHjAASDjXgqPRkfh1TzcNxOYDUeavJJDQNYdPYzGR+IdOXTbzrIARJy8kq77gS0QkfEAASD7NtHoINuc9T9kR1qKmAFbBOhxs/IZTgQ8Sd/iCeyJmAUPAJ68CzlLBCxLVL+BUZ7V4h1Nn+qTyOyI2v6azsKzIrb01byMmQ2xtR/TOnAWREsf5oV0dkRr/ZQrkayIjLppl3LZEFn1Uq+FsyAy63RrOOLfhD0+YLfdmGjT6FXPen6gMesJlsasZ6gaE+p3KuNTfFdWVlaunH9wRy7FF1MHnQAAAABJRU5ErkJggg==" style="width:20px;height:20px"> ARE YOU A GOOD CANDIDATE?</div>
+<div class="sep"></div>
+<table class="content-table">
+<tr>
+  <td>
+    <div class="col-head">Favourable indications</div>
+    <ul class="dotlist">
+      <li>Healthy natural teeth, without untreated cavities</li>
+      <li>Healthy gums (no active periodontitis)</li>
+      <li>Teeth stained by tobacco, coffee or age</li>
+      <li>Realistic expectations about the final result</li>
+    </ul>
+  </td>
+  <td class="shaded">
+    <div class="col-head">Contraindications</div>
+    <ul class="dotlist">
+      <li>Pregnant or breastfeeding women</li>
+      <li>Children and adolescents under 18</li>
+      <li>Severe untreated dentine hypersensitivity</li>
+      <li>Significant enamel erosion</li>
+      <li>Allergy to peroxides</li>
+    </ul>
+  </td>
+</tr>
+</table>
+
+<div class="section-title"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAB0UlEQVR4nO2a2U0DQRAF14hMTBiQA0Rq5wBhQCzw1RIgz87R1+v1q29b01OqPWzNthFCCCGE3OTz9fk7e4Y9HrIH2EPkIUuEFlgBWIH/q0OtEFZgFSAFtmpDrBBSYCXgBPYqQ6sQTmA1oASO1oVUIZTAisAInK0KpUIIgasyECRCCKxMukBtRdkVpgusTqpAq3oyK2SBStIEWleTVSELVJIi0KuWjArDBXpvMlriY+RiI5wv793PfL29BEwyRmiBUXVEVsiHiJIwgdH3pqj1WKCSEIFZL7kR67JAJe4Cs/9u8l6fBSpxFZhdn+A5h5tAFHmC1zy8hJW4CESrT/CYiwUqMReIWp9gPR8LVGIqEL0+wXJOFqjETGCV+gSreVmgEhOB1eoTLOZWC6wqT9DOz0tYyUnz5er1/ebp+rHkggUqWRZ4pPq2bX0/cCcThFsnFJBOJAhLBXrX1zreMXLsQ8PKvuDugT1J3hJnmRboWd+oHE+Js/ubEni0B0eLmX3CXcLVGBZ4L/UJo/tlgUqGBEbVN/qeF/U+OLJvuAJ7ctBeprsCM+59LUkZ8nr7h/0ph1Zai90C7+3J22LPA9w9sBpNgazvL/RBCCGEEEIIIYfhB/jgvuJVvFeEAAAAAElFTkSuQmCC" style="width:20px;height:20px"> POSSIBLE SIDE EFFECTS</div>
+<div class="sep"></div>
+<div class="shaded-warn">
+  <div class="warn-title">⚠ Tooth sensitivity — normal and temporary</div>
+  <p style="font-size:10pt">Hypersensitivity to cold or air may occur during treatment. It generally disappears within 24–72 hours after the end of treatment. If it persists, inform your practitioner so the protocol can be adjusted.</p>
+</div>
+<table class="content-table">
+<tr>
+  <td>
+    <div class="col-head">Other possible effects</div>
+    <ul class="dotlist">
+      <li>Mild gum irritation if the gel overflows</li>
+      <li>Temporary sensation of "numb" teeth</li>
+      <li>Uneven whitening (more porous areas)</li>
+    </ul>
+  </td>
+  <td>
+    <div class="col-head">How to minimise them</div>
+    <ul class="dotlist">
+      <li>Use a sensitive teeth toothpaste before treatment</li>
+      <li>Follow the recommended application times</li>
+      <li>Avoid very hot or cold foods for 48 hours</li>
+    </ul>
+  </td>
+</tr>
+</table>
+
+<div class="section-title">AFTER TREATMENT — ADVICE AND DURATION</div>
+<div class="sep"></div>
+<p class="intro-para">The first 48 hours are critical: teeth are more porous and absorb pigments easily. Follow the "white diet" (foods and drinks low in colour during the first 48 hours of treatment).</p>
+<table class="content-table">
+<tr>
+  <td>
+    <div class="col-head" style="color:#e74c3c">To avoid (throughout treatment)</div>
+    <ul class="dotlist">
+      <li>Coffee, tea, red wine, coloured fruit juices</li>
+      <li>Tomato sauce, beetroot, curry, soy sauce</li>
+      <li>Tobacco and coloured lipstick</li>
+    </ul>
+  </td>
+  <td>
+    <div class="col-head" style="color:#27ae60">To maintain the result</div>
+    <ul class="dotlist">
+      <li>Brush twice a day with fluoride toothpaste</li>
+      <li>Rinse after coffee or wine</li>
+      <li>Use a straw for tannin-rich drinks</li>
+    </ul>
+  </td>
+</tr>
+<tr class="shaded">
+  <td>
+    <div class="col-head">Duration of results</div>
+    <p style="font-size:10pt">On average 1 to 3 years depending on lifestyle. Results last longer in non-smokers.</p>
+  </td>
+  <td class="shaded">
+    <div class="col-head">Cost and reimbursement</div>
+    <p style="font-size:10pt">A cosmetic procedure, <strong>not reimbursed</strong> by French Social Security. Price varies depending on the impression method (physical or digital).</p>
+  </td>
+</tr>
+</table>
+
+<div class="section-title"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAABr0lEQVR4nO3cMVLDMBCFYZlJ4TP4EO5ocgIKCsoU3IGSM1DmDhSUFBScgIaOQ/gMdFBpJsmMsiuePBOx/9cG2dKbRfIGxikBAAAgomGtC0/b+5/SZ8vH87+571XrC0ZDgCICFBGgiABF1afS9PBSPOWOfL6VP7u+rb2tX4P7LvudO5eqCnSH17madboDjBJe5l2vK8Bo4WWedZsBRg0vs9bPKSwiQBEBighQtFntyms+LF/QfalAEQGKCFBEgCICFBGgiABFBCj604P0++Nd42lcnpunV9fPVQUYIbgsr9UKkl9hkTvASNV3yFo3FShq8m3M4T5RU6m9jDtHrsDTTdZ7evUyziIFWJqENblexnmwB4oIUCQFWNqIrQ26l3EecgWeTsI7qV7GWcz/Qsp/mY/6IJ1SSvM0FnNiDxQRoIhOREQnIqITEbEHighQRCciohMR0Yk40ImsiABFdCIiOhERnYiIPVBEgCI6ERGdiIhOxIFOZEUEKCJAEQGKzABrXgESkasCl/1uaNU79ubcCZxS5Yt3vpbvcC+gsAKs2gPnaQxTifM0DlZ4AAAAHfsF1zn5bm28L+AAAAAASUVORK5CYII=" style="width:20px;height:20px"> WARNING — UNREGULATED TREATMENTS</div>
+<div class="sep"></div>
+<div class="shaded-danger">
+  <div class="danger-title">🚫 "Smile bars" and social media products: real risks</div>
+  <p style="font-size:10pt">These practices are <strong>illegal in France</strong> and dangerous. Only dental surgeons are authorised to perform or prescribe teeth whitening. The use of concentrated gels by non-professionals has been prohibited since 2012 (European Directive 2011/84/EU).</p>
+</div>
+<table class="content-table">
+<tr>
+  <td>
+    <div class="col-head">Health risks</div>
+    <ul class="dotlist">
+      <li>Severe chemical burns to the gums and oral mucosa</li>
+      <li>Irreversible enamel damage (demineralisation)</li>
+      <li>Chronic dentine hypersensitivity and persistent pain</li>
+      <li>Undosed, counterfeit or uncontrolled products</li>
+      <li>No prior assessment: cavities and lesions go undetected</li>
+    </ul>
+  </td>
+  <td>
+    <div class="col-head">Warning signs</div>
+    <ul class="dotlist">
+      <li>Very low prices, treatments in beauty salons or institutes</li>
+      <li>Kits sold on Instagram, TikTok or uncertified websites</li>
+      <li>Spectacular before/after results in just minutes</li>
+      <li>No prior dental consultation or examination</li>
+      <li>Products without French labelling or CE marking</li>
+    </ul>
+  </td>
+</tr>
+</table>
+
+<div class="section-title"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAABoElEQVR4nO3cMU7DMBiG4YCYYScngNvQXKMzGWAsA8xcg3IbOAHs9AIwuWpTHP/2h9MYv4/UobLlxF/jOr/UpmkAAAAAAKjLSY5BLxe337vvP9dPWY5jlfN8Tv9qoFoRoIgARQQoIkBR9G403NH+o5hdOuoKrCG8pombpznAWsJzrPM1BVhbeI5l3sEAaw3PCc2fXVhEgCICFBGgiABFBCgiQBEBighQRIAiAhRFBfjx8pjrPGYlZp5nOQevAUtYRICi6CW86/V94227uTovur9V8hUYOviwvbT+z6u70XaHJSwiQBEBighQRICi5AB/uy0Yay+t//L+YbTdke4DQydRcv+lcQyWsIhKREQl4kElMhECFBGgiABFBCiiEvGgEhH7U4lMhEpERCXiQSUyEQIUEaCIAEUEKKIS8aASEftTiUwk6gpsu37vB5YlVRZHq0SGf39vu9508LlVFqmVSOjv/6Yl7AsxpO367avE/pZnJ5i/A4/9+Ka5itpECPFQciDrt6/gowAW1xfb8Uvv78NtjCg5wNCnM2wvvT8A4NAPul4MleaD5CYAAAAASUVORK5CYII=" style="width:20px;height:20px"> FOLLOW-UP &amp; FREQUENTLY ASKED QUESTIONS</div>
+<div class="sep"></div>
+<table class="content-table">
+<tr>
+  <td>
+    <div class="col-head">Recommended follow-up</div>
+    <p style="font-size:10pt;font-weight:bold;color:#2E86AB;margin-bottom:2px">Frequency</p>
+    <p style="font-size:10pt;margin-bottom:8px">A touch-up session every 12 to 18 months is enough to maintain the result, depending on your hygiene and habits.</p>
+    <div class="col-head">Signs to watch for</div>
+    <p style="font-size:10pt">If sensitivity persists for more than 5 days or if you notice prolonged gum irritation, consult without delay.</p>
+  </td>
+  <td>
+    <div class="col-head">Frequently asked questions</div>
+    <p style="font-size:10pt;font-weight:bold;color:#1A3A5C">Is it painful?</p>
+    <p style="font-size:10pt;margin-bottom:8px">No, the treatment is painless. Mild sensitivity is possible but temporary.</p>
+    <p style="font-size:10pt;font-weight:bold;color:#1A3A5C">Are the results guaranteed?</p>
+    <p style="font-size:10pt">Results depend on the nature of the discolouration and the structure of your enamel. A prior assessment allows the expected result to be estimated.</p>
+  </td>
+</tr>
+</table>
+<div class="citation">
+  <img src="data:image/png;base64,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" style="width:18px;height:18px;opacity:0.6">
+  <em>A bright smile starts with healthy teeth — consult your practitioner before any treatment.</em>
+</div>
+<div class="footer">Dr IANNOTTA Maxime &nbsp;•&nbsp; 7 avenue Lemeray, 06600 Antibes &nbsp;•&nbsp; 04.97.04.94.21 &nbsp;•&nbsp; docteur.iannotta@gmail.com</div>
+</div></body></html>
