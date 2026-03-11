@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IANNOTTA Maxime – Chirurgien-Dentiste</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:   #091e35;
+      --deep:   #061628;
+      --blue:   #1a4a7a;
+      --sky:    #4a9fd4;
+      --accent: #c8a96e;
+      --muted:  #5a7a99;
+      --white:  #f0f6ff;
+      --card-bg: rgba(255,255,255,0.045);
+      --card-border: rgba(255,255,255,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--deep);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Fond fluide blobs ── */
+    .bg-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      background: linear-gradient(145deg, #0b2140 0%, #061424 55%, #0a1e38 100%);
+    }
+    .blob {
+      position: absolute;
+      filter: blur(80px);
+      border-radius: 50%;
+      will-change: transform;
+    }
+    .blob-1 {
+      width: 560px; height: 500px;
+      background: radial-gradient(ellipse, #1a4a7a 0%, transparent 70%);
+      top: -180px; left: -140px;
+      opacity: 0.6;
+      animation: drift1 20s ease-in-out infinite alternate;
+    }
+    .blob-2 {
+      width: 440px; height: 420px;
+      background: radial-gradient(ellipse, #0d3560 0%, transparent 70%);
+      bottom: -120px; right: -100px;
+      opacity: 0.55;
+      animation: drift2 25s ease-in-out infinite alternate;
+    }
+    .blob-3 {
+      width: 300px; height: 280px;
+      background: radial-gradient(ellipse, #2a6fa8 0%, transparent 70%);
+      top: 38%; left: 55%;
+      opacity: 0.2;
+      animation: drift3 17s ease-in-out infinite alternate;
+    }
+    .blob-4 {
+      width: 200px; height: 200px;
+      background: radial-gradient(ellipse, #c8a96e 0%, transparent 70%);
+      top: 12%; right: 8%;
+      opacity: 0.1;
+      animation: drift1 22s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes drift1 {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(50px, 70px) scale(1.1); }
+    }
+    @keyframes drift2 {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(-55px,-45px) scale(1.12); }
+    }
+    @keyframes drift3 {
+      from { transform: translate(0,0); }
+      to   { transform: translate(-35px, 55px); }
+    }
+
+    /* Grain texture */
+    .grain {
+      position: fixed; inset: 0; z-index: 0;
+      opacity: 0.022; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    /* ── Layout ── */
+    .content {
+      position: relative; z-index: 1;
+      max-width: 460px;
+      margin: 0 auto;
+      padding: 52px 24px 72px;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 52px;
+      animation: fadeUp 0.85s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    .emblem {
+      margin: 0 auto 20px;
+      width: 56px; height: 56px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .emblem img {
+      width: 56px; height: 56px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 12px rgba(255,255,255,0.18));
+    }
+
+    .doctor-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(240,246,255,0.4);
+      margin-bottom: 4px;
+    }
+    .fullname {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: rgba(240,246,255,0.88);
+      line-height: 1.2;
+    }
+    .title-line {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin-top: 14px;
+    }
+    .rule {
+      flex: 1; max-width: 44px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent));
+    }
+    .rule.right { background: linear-gradient(90deg, var(--accent), transparent); }
+    .title-text {
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* ── Section ── */
+    .section { margin-bottom: 26px; }
+    .section-label {
+      font-size: 0.59rem; font-weight: 500;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 10px; padding-left: 2px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px; overflow: hidden;
+      margin-bottom: 10px;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      transition: border-color 0.3s, background 0.3s, transform 0.25s, box-shadow 0.3s;
+      animation: fadeUp 0.85s cubic-bezier(.16,1,.3,1) both;
+    }
+    .card:hover {
+      border-color: rgba(74,159,212,0.38);
+      background: rgba(255,255,255,0.072);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 52px rgba(0,0,0,0.38), 0 0 0 1px rgba(74,159,212,0.12);
+    }
+
+    .card-link {
+      display: flex; align-items: center; gap: 16px;
+      padding: 18px 20px;
+      text-decoration: none; color: inherit; cursor: pointer;
+    }
+
+    .card-icon {
+      width: 46px; height: 46px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .icon-google { background: rgba(66,133,244,0.13); }
+    .icon-docs   { background: rgba(74,159,212,0.12); }
+    .icon-mail   { background: rgba(200,169,110,0.13); }
+    .card-icon svg { width: 22px; height: 22px; }
+
+    .card-text { flex: 1; min-width: 0; }
+    .card-title {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem; font-weight: 500;
+      letter-spacing: 0.02em; color: var(--white);
+    }
+    .card-sub {
+      font-size: 0.71rem; font-weight: 300;
+      color: var(--muted); margin-top: 3px; letter-spacing: 0.02em;
+    }
+
+    .card-arrow {
+      color: var(--muted); flex-shrink: 0;
+      transition: color 0.25s, transform 0.25s;
+    }
+    .card:hover .card-arrow { color: var(--sky); transform: translateX(4px); }
+
+    /* ── Expand ── */
+    .expand-body {
+      display: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .expand-body.open { display: block; }
+
+    .toggle-arrow { transition: transform 0.32s cubic-bezier(.16,1,.3,1); }
+    .card-header { user-select: none; }
+    .card.expanded .toggle-arrow { transform: rotate(90deg); }
+
+    .lang-tabs {
+      display: flex;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .lang-tab {
+      flex: 1; padding: 11px 16px;
+      background: none; border: none;
+      color: var(--muted);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang-tab.active { color: var(--sky); background: rgba(74,159,212,0.08); }
+
+    .fiche-list { display: none; padding: 6px 0; }
+    .fiche-list.active { display: block; }
+
+    .fiche-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 13px 20px;
+      text-decoration: none;
+      color: rgba(240,246,255,0.82);
+      font-size: 0.85rem; font-weight: 300; letter-spacing: 0.02em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .fiche-item:hover { background: rgba(74,159,212,0.09); color: var(--white); }
+    .fiche-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--sky); flex-shrink: 0; opacity: 0.7;
+    }
+
+
+    .fiche-row {
+      display: flex; align-items: center;
+      padding: 11px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      gap: 0;
+    }
+    .fiche-row:last-child { border-bottom: none; }
+    .fiche-main {
+      display: flex; align-items: center; gap: 14px;
+      flex: 1;
+      text-decoration: none;
+      color: rgba(240,246,255,0.82);
+      font-size: 0.85rem; font-weight: 300; letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .fiche-main:hover { color: var(--white); }
+    .fiche-dl {
+      display: flex; align-items: center; gap: 5px;
+      text-decoration: none;
+      font-size: 0.72rem; font-weight: 400; letter-spacing: 0.05em;
+      color: rgba(200,169,110,0.75);
+      border: 1px solid rgba(200,169,110,0.3);
+      border-radius: 4px;
+      padding: 4px 9px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+    }
+    .fiche-dl:hover { background: rgba(200,169,110,0.12); color: var(--gold); border-color: rgba(200,169,110,0.6); }
+    .fiche-dl svg { flex-shrink: 0; }
+
+    .lang-badge { white-space: nowrap;
+      font-size: 0.59rem; padding: 2px 7px;
+      border-radius: 20px;
+      border: 1px solid rgba(74,159,212,0.35);
+      color: var(--sky); margin-left: 7px;
+      vertical-align: middle; letter-spacing: 0.08em;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; margin-top: 52px;
+      color: var(--muted);
+      font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase;
+      animation: fadeUp 0.85s 0.55s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    /* ── Keyframes ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .header { animation-delay: 0.05s; }
+    .section:nth-child(2) .card { animation-delay: 0.18s; }
+    .section:nth-child(3) .card { animation-delay: 0.28s; }
+    .section:nth-child(4) .card { animation-delay: 0.38s; }
+  </style>
+</head>
+<body>
+
+  <div class="bg-wrap">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+  </div>
+  <div class="grain"></div>
+
+  <div class="content">
+
+    <!-- En-tête -->
+    <div class="header">
+      <div class="emblem">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAioAAAIqCAYAAAAKMGGzAAAS6UlEQVR4nO3d2ZbbOBIFQFWf/v9f1jzYNS2XtXABiFwiXqenTIFJ5CVAUbcbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwH++Vh8AQDf3+/2+5b/7+voyR9OeiwBgkq2B5ChBhg4UOcBAs8PJK0ILVSlsgBNWBZN3hBYqUcyUMaNhmPB5JmI4eUb9UoEiJrUVDcPk31eWgPKTmiUzxUsqERuFJlBbxJo7Sq2SkaIlhSzNQiOoI0vN7aVGyUbBElb2RqEh5JS97rZSn2ShUAmnYqPQFOKrWHdbqE2iU6CEUr1ZaArxVK+5LdQlkSlOQujWLDSG9brV3CdqkqgUJktpFhrE1dTca2qRiBQly2gYf9Ik5lJv26hDolGQLKFpvKZRjKXW9lODRKIYuZzGsY1mcU7UOjtzXq/8TOqPKBQil4naODLQNLaLVGezz9vsz6ruiEARcolIzSMzjeO1KDW24hzN/OxqjtUUINNFaSCVaB7/iVJfEc7JrLGI8NnoS/ExVaYmEuVY9+jeQFafs6jjP2Ncon5W6lN4THN1E5k1ka5uhlt0aiIRzkeW8R49Vlk+N7UoOqao+u2ECE3yk6rNJMLYZxxbYYXsFBzDXdVQIkyYEZrnKxHGZ4QIY5x9LEeOYfaxIB8Fx1Cdvy4ZoaG+EnncnokwltnG7BNhhawUG0P5mmSMJvtO5HGMMnaRx+gMYYWMFBrDCCl/i9J4n4kyppHGKMqYzDRqvDuMFTEoNIbw/ob3IjXjVzo/lFylzvYYcQ46jhvXU2ScJqRsF61BvzNy/KN+7oo1tpWgQhaKjNO8XOqYqM37k3fnJstn6lBfWwgrZKDAOEVIOS9Lc6+gW21tIawQneLiMCFlLIFlns51tcXZ2jO+zPTP6gOAb90nu6/fVh9HJcZ0G2NEZIqTQ7yW+xpWWY5RT/tZVSEqhcVuQsr1BJZt1NI5Z+rM2DOLrR+WMrltYwvjPeOznjDNLC5sdvEK7hg0hV/U0HhWVYhGUbGL12/H0zG0qJ+5hBUi+Xf1AZBHx4aYwXdj6HB+NEHoR1DhcprNHI/jWi20qBnoy8XPJrZ88soaWtTKWrZ/iMKKChSXaaVFgwN+Mimwid8DqWl1cFETsR2tD+eVkayo8NHqZsY8PxvK7HOtgQF7mTT4yGoK3z7VgvNci+dUiEAh8ZaHaKE32z+s5hX6TGfCAuAoQQUACEtQ4SXPpgCwmqACwEtHbzZ8W5BRBBUAICxBhWls+wBwlqDCU5ZtAYhAUGEKqykAjCCoAABhCSoAvGWFlJUEFQAgLEGFv5x9kNbdFwCjCCoAQFiCCgAQlqACAIQlqAAAYQkqAEBYggp/8Op8ACIRVBjKV5MBGElQAQDCElQAgLAEFQAgLEEFAAhLUAEAwhJUAICwBBUAICxBBYC3vAiSlQQVACAsQQUACEtQAQDCElQAGM7vfjGKoAIAhCWoAPCSb/ywmqACAIQlqAAAYQkqAAzlQVpGElQYyn421OF6JgJBhT+4EwIgEkEFAAhLUAFgGKuyjCaoAPAXz6cQhaACAIQlqAAwhG0fZhBUGM6SMeTmGiYSQYW/uCsCIApBBYD/s5pCNIIKAKdZiWUWQYUp3JUBMIKgAsDtdnODQUyCCgCn2PZhJkGFp0w80IvVFKISVAA4zE0NswkqTOMODYCzBBWA5txUEJmgwkuWdIF3zBFcQVABaMxqCtEJKkxlEoS4zlyfVlO4iqACAIQlqPCWuybgJ/MCVxJUmM72D8TjuiQLQQWgGc+mkImgAgCEJajw0Yg7KMvMEIPVFLIRVACAsAQVgCasppCRoMImtn8gNyGFrAQVACCsf1cfQCWrVgzc7QDvWE0hMwW4U+btiyjbNyY+uM7Za9b1ympWVN7IHEqeefZ5TEJQl5BCBYLKb9VCyVavPrcJCnozBxBF20LsGkyiMAnCXFZTqKLViopwAnQgpFBJ+WIUTuIyGcJ4QgrVlF1RuSqgrLqoBTDgJ/MCFZUKKjMu0qh3F++Oy2QFHBF1vqO3EkU5qjF3uEijhZgOYw5XsOVDVakL08vHzosUXLqfCzhKSKGytMV59MJ0QW6zOsA4T7CNGzaqS1ucey5OF+F5K4OL8wfPCSl0kLZAP12gLr65BBdYS0ihi7RF6tXvMdgigusJKXSSvlDv9/vdBbfW6rDyTR3QgZBCN4qV06IElUcmYioSUuhIwTJExLByu5mUqWHk9eWaIBsFyxBRg8pPJmmyEVLortQr9OGTx0nfpE0n6p2sFC7DZFlVecYkTjRWUuAXxcsws35z6coAZEInAiEF/qOAGWr2txKEFqoTUuBPipihrvol66u3mUz4zDa6ptUsVShkhrv6XQ9CC9kJKfCaYma4lS+lWvFAr6bAUTPqVT1SjYJmuKu2f644hj00CPYQUmAbRc0U0V71bXuIKAQU2EdxM0WEVZVnVr3rRSPhdhNS4AgFzhRRg8oj20NcZVatqSc6UORME2375x0rLcwws67UDl0odKbJsKryjNDCWQIKjKPgmSrTqspPK3+7SDPKS0iBsRQ9U2VdVflp9Q8urv78vHdFfagBulL4TFUlqDxaHVput1jj0ZmAAvO5AJgu8/bPOwJLX1ede+cXBBUuUjWsPIoQXG63+OOUlV/uZg+/3zRO2w/OtToElW9RAsu3LOMWkXft8C3adf1JpToq80GIreKzKltEnNyyjeHVfD29t4jX7AiZ6yvtgZNPp1WVZyJPgJnH9awI56Xz+K8S4bxfLWudpTxocuoeVB5lmiSrjPm3SGNfbWyjinTOV8tYc+kOmNyElb9lnUQznIeoY5th7DKLet4jyFh7/64+AOju58SRZZLdcpyzJ8UsY/UtY5PIIFsdsI+LhktZUdnHBFxDp5q9imtjv6x1mPKgyU1YOcbEnEvHGp0t8jUQ8Xzf7/d7xOPaK/0HIB9B5bzIE3Z33WtzpEh17ryuY+C5XNd3qswUaULvSj2OEaGWnctYnAyWsKoyV4TJvgM1OI4X7fGKE8QSVlWuJbiMo+bG8RMFbOGEsYxVlbWEl+3U2Vh+4JE9vEcFmsr6/pYraG7jXVVfzl09ggpwu91eT/AdAozmNs8V9eP81ebkspTtn9yyhRi1cg3hhJGsqACHfWoWHpbsZfb5dm57ctJZ7uzkZvKCtWYGFNc3CoDlbP9ATgIKV7D1A8AuswKKcMIzggoAmwgorKA4CMH2D8QloLCSFRUAXpoRUgQU9lAshOHbPxDH6IDi+uQohUMYtn+o7FV9R6xZIYVIbP0ATLC12T/+d6sb+siAsvqzUIegAjDI2Ub//f+/uskLKESmoAjFcypklPnFZ6OO3bXHLP+sPgAYKduP5JHf7Jqb+feFFDKw9QNw0FXB+H6/30eGAQGFTKyoEIqJjyyuXr0b8e/dfxtxPK5VriKoAOy0aovxzL87MqAIKVxJsRGO96kQWZTnoPbUuGuKzDyjAlCUbR4qsPVDOCZFooqymnK7fT6WUasorkdWE1QAknoVRmz1UIlCJCQTLREdqct3dTh6a8Z1Q0WeUQGY5FPTf/zfR71+/wwhhYgUJWF5nT6R7K3HI/W36hkY1wqReUYFIIgVgUFIITpBhbIifUODXs40/yuDg5BCBoIKQDCzA4SvHZOJoAIwWOQHWwUUshFUCMuESiQV6rHCZ6AfQQVggmirKkIKWQkqlOaBWlY6+2vHXoMPggrAVHvDxqiAcrtZRaEGb6YF2Ojr6+vrSIiwsgfHWVEhNHeEAL0JKgA7CM9wLUEFYKcsYcWWExUIKgAHZAkrkJ2gQnnuKplFWIH5XGSkcDZsaChz7Dkvlc9B9DBceeypz9eTgY9GNOJnf6NKAz36tWXgM0EFeOqKxvvz38gcXGaHlcexEYroJO2kQC+2fq4RqQFmPmez3yx75O9nHk96U7ikIKjMEymcPJP93O0d362fd9bfhWgULilE+yXaKqKHlEfO358EFbrw9WRoaOQP310l4zFHYuzISlAhBXeDY1Ro9tmPfxTXBF0IKtBEpQZfIXAB2wgqUFzlpl71c81ivMhIUIHCOjSmykHsE9s/dCCoQFHdmne3zwtdCCpQUNem3fVzQ2WCCm10aWJdPucr3T//J8aHbAQV0rAf/5km9ItxgDr8KCEUsbI5fwqRK47tfr/fO4Rbv9xMdYIKFHBlozrS/H/+f6463i5hBSoTVCC5K5r+6Gb/+PesBlxPgCMTQQV46YpmNju0aMqQm4dpIbFZqxFfv83425/+3Rl/16oN5CWoQFIzQ8qMv7vn359xDJXDyupzBjMJKpDQjKa7ahXllUjHAqwjqABhQ8Ho46q8qgJVCSqQzOhmGzWkfBNW5jAOZCGoQCLdQsq30dtSmjTkIahAU1lCyqOMx3wVY0NVggokMXIVQFOzqgJZCCrQTPaQkv34gX0EFVrJehc96rirNPlRnyNrPUAnggqpVGm0nCesnNf5s5OHoALBWU0BOhNUoIGqIcWqCtQnqACpVQ1hRxgLKhJUILARd/odmteIz2hVBWISVACAsAQVCMpqyj5WVaAmQQUACEtQgYCsphxjVQXqEVSAUoQVqEVQgYI6rqYANQkqEIy7+fOsqkAdggpAYwIZ0QkqUIxtn1+MA9QgqEAg7m5jcT5gPUEFCrGK8CfjAfkJKgBvWFWBtQQVCEJDnMOqCuQmqEARGvJrxgbyElQAPrDaBesIKkALVlUgJ0EFAjh7x64Jz2dVBdYQVACAsAQVoI2zK09WVeB6ggosZtsH4DVBBWhFsINcBBWAHWz/wLUEFVhI0wN4T1CBxGxjHGPcIA9BBWAnK2FwHUEFaMmqCuQgqAAcYFUFriGowCLenwLwmaACtCXsQXyCCgAQlqACcJDnVGA+QQUSsmUxjrGE2AQVWMCdOMA2ggrACUInzCWoAO3Z/oG4BBUAICxBBZJx9w90IqjAxTzTENOZAJj5nAq+RCeoAABhCSoARWRe2YFXBBWA32yDQDyCCsAAVjNgDkEFLnS2mbnjB7oRVACAsAQVgAdWrSAWQQVgEM+pwHiCCgAQlqACSdiSADoSVOAitgXyEAohDkEFAAhLUAEYyMoZjCWoADRli4sMBBWAJ7I1cSs5VCWowAW8Oh/gGEEFAAhLUAEYzDYMjCOoAABhCSq0424XIA9BBSYTjPLyEDOsJ6iQTrfm0e3zAjwSVACSs2pHZYIKwATCA4whqAAAYQkqtJTlbtfzKetVPQdVPxf1CCqklGWSzRKIAKISVACAsAQVACAsQYW2Zm/L2PYBOE9QgaCyPIfDa8IqnCeokJZGDsIQ9QkqtGaSZwuhGNYRVACAsAQVmMBKDZFZISITQYXURky4EUOFRgLwi6ACkFTEkA2jCSpwGzvhax48Ug9wjqBCeqO2STQU3rEdB2sIKhCMhsgWR4O1+iIbQYUSoqyqWJXhGXUBxwkq8IOmAhCHoEIZI5e0j4SVEQHHsjxbCNN0IqjAC5oBP50JkqPq6czfEYTJSFChlNET8f23Lf/dyH8XgF8EFdjgXWAZFVLc7dbnYW3Yz8RISRkndEElj7P1deRcr/g3IQIrKhCAJtLL3tCRMXjDKIIKJWn8zHTVj2FufUbqE9cDmQkqlGVyJrpXQWRUQIEKTOSUF33CF6jyil5bt5v6Ij8rKrCQJgLwnqBCecIAs0SvrejHB1sIKrQQccKOeEzsF/U8Rj0u2EtQoY1IE3ekY+G8aOcz2vHAGYIKrXz9tvoYVv771Ka+qEZQoaVVk7kmUleEcxvhGGA0RU1rV369VBPpY8XXltUXVVlRobWrtoI0EWZSX1SmuOHBjDthTaSv2SsraosOFDm84NdqGWFWWFFfdKHQYaMtDUfz4B0/MAj7KXiAi+0NLMIJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABPc/3raLFYwTaNkAAAAASUVORK5CYII=" alt="Logo dent" />
+      </div>
+      <div class="doctor-label">Docteur</div>
+      <div class="fullname">Iannotta Maxime</div>
+      <div class="title-line">
+        <div class="rule"></div>
+        <div class="title-text">Chirurgien-Dentiste &nbsp;·&nbsp; Dentist</div>
+        <div class="rule right"></div>
+      </div>
+    </div>
+
+    <!-- Avis Google -->
+    <div class="section">
+      <div class="section-label">Votre avis compte · Your review matters</div>
+      <div class="card">
+        <a class="card-link" href="https://g.page/r/CS8-iS5sVbLLEAE/review" target="_blank" rel="noopener">
+          <div class="card-icon icon-google">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+          </div>
+          <div class="card-text">
+            <div class="card-title">Laisser un avis Google</div>
+            <div class="card-sub">Votre retour m'aide à progresser · Share your experience on Google</div>
+          </div>
+          <div class="card-arrow">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Fiches -->
+    <div class="section">
+      <div class="section-label">Fiches conseils · Care guides</div>
+      <div class="card" id="ficheCard">
+        <div class="card-header" onclick="toggleFiches()" style="display:flex;align-items:center;padding:18px 20px;cursor:pointer;gap:16px;">
+          <div class="card-icon icon-docs">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(74,159,212,0.85)" stroke-width="1.4">
+              <path d="M9 12h6M9 16h6M9 8h3M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/>
+            </svg>
+          </div>
+          <div class="card-text">
+            <div class="card-title">Mes fiches · Patient care guides <span class="lang-badge">FR · EN</span></div>
+            <div class="card-sub">Hygiène · Prothèse · Éclaircissement &nbsp;·&nbsp; Hygiene · Prosthetics · Whitening</div>
+          </div>
+          <div class="card-arrow toggle-arrow">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+        <div class="expand-body" id="ficheBody">
+          <div class="lang-tabs">
+            <button class="lang-tab active" onclick="switchLang('fr',this)">🇫🇷 &nbsp;Français</button>
+            <button class="lang-tab" onclick="switchLang('en',this)">🇬🇧 &nbsp;English</button>
+          </div>
+          <div class="fiche-list active" id="lang-fr">
+            <div class="fiche-row">
+              <a class="fiche-main" href="https://docteuriannotta.github.io/Cabinetdentaire-robin-iannotta/fiche-hbd-fr.html" target="_blank" rel="noopener">
+                <div class="fiche-dot"></div>Hygiène bucco-dentaire
+              </a>
+              <a class="fiche-dl" href="https://docteuriannotta.github.io/Cabinetdentaire-robin-iannotta/fiche-hbd-fr.pdf" download title="Télécharger en PDF">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                PDF
+              </a>
+            </div>
+            <div class="fiche-row">
+              <a class="fiche-main" href="https://docteuriannotta.github.io/Cabinetdentaire-robin-iannotta/fiche-prothese-fr.html" target="_blank" rel="noopener">
+                <div class="fiche-dot"></div>Soins prothétiques
+              </a>
+              <a class="fiche-dl" href="https://docteuriannotta.github.io/Cabinetdentaire-robin-iannotta/fiche-prothese-fr.pdf" download title="Télécharger en PDF">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                PDF
+              </a>
+            </div>
+            <div class="fiche-row">
+              <a class="fiche-main" href="https://docteuriannotta.github.io/Cabinetdentaire-robin-iannotta/fiche-eclaircissement-fr.html" target="_blank" rel="noopener">
+                <div class="fiche-dot"></div>Éclaircissement dentaire
+              </a>
+              <a class="fiche-dl" href="https://docteuriannotta.github.io/Cabinetdentaire-robin-iannotta/fiche-eclaircissement-fr.pdf" download title="Télécharger en PDF">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                PDF
+              </a>
+            </div>
+          </div>
+          <div class="fiche-list" id="lang-en">
+            <div class="fiche-row">
+              <a class="fiche-main" href="https://docteuriannotta.github.io/Cabinetdentaire-robin-iannotta/fiche-hbd-en.html" target="_blank" rel="noopener">
+                <div class="fiche-dot"></div>Oral hygiene guide
+              </a>
+              <a class="fiche-dl" href="https://docteuriannotta.github.io/Cabinetdentaire-robin-iannotta/fiche-hbd-en.pdf" download title="Télécharger en PDF">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                PDF
+              </a>
+            </div>
+            <div class="fiche-row">
+              <a class="fiche-main" href="https://docteuriannotta.github.io/Cabinetdentaire-robin-iannotta/fiche-prothese-en.html" target="_blank" rel="noopener">
+                <div class="fiche-dot"></div>Prosthetic care guide
+              </a>
+              <a class="fiche-dl" href="https://docteuriannotta.github.io/Cabinetdentaire-robin-iannotta/fiche-prothese-en.pdf" download title="Télécharger en PDF">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                PDF
+              </a>
+            </div>
+            <div class="fiche-row">
+              <a class="fiche-main" href="https://docteuriannotta.github.io/Cabinetdentaire-robin-iannotta/fiche-eclaircissement-en.html" target="_blank" rel="noopener">
+                <div class="fiche-dot"></div>Teeth whitening guide
+              </a>
+              <a class="fiche-dl" href="https://docteuriannotta.github.io/Cabinetdentaire-robin-iannotta/fiche-eclaircissement-en.pdf" download title="Télécharger en PDF">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="section">
+      <div class="section-label">Contact</div>
+      <div class="card">
+        <a class="card-link" href="mailto:docteur.iannotta@gmail.com">
+          <div class="card-icon icon-mail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,110,0.85)" stroke-width="1.4">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div class="card-text">
+            <div class="card-title">Nous écrire · Contact us</div>
+            <div class="card-sub">docteur.iannotta@gmail.com</div>
+          </div>
+          <div class="card-arrow">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div style="margin-bottom:4px;">Cabinet des Dr ROBIN &amp; IANNOTTA</div>
+      <div style="margin-bottom:4px;">7 avenue Lemeray &nbsp;·&nbsp; 06600 ANTIBES</div>
+      <div style="margin-bottom:4px;">04 97 04 94 21</div>
+      <div>Tous droits réservés</div>
+    </div>
+  </div>
+
+
+  <script>
+    function toggleFiches() {
+      const card = document.getElementById('ficheCard');
+      const body = document.getElementById('ficheBody');
+      card.classList.toggle('expanded');
+      body.classList.toggle('open');
+    }
+    function switchLang(lang, btn) {
+      document.querySelectorAll('.lang-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.fiche-list').forEach(l => l.classList.remove('active'));
+      document.getElementById('lang-' + lang).classList.add('active');
+    }
+  </script>
+</body>
+</html>
